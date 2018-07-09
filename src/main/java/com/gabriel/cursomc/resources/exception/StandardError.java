@@ -3,8 +3,6 @@ package com.gabriel.cursomc.resources.exception;
 import java.io.Serializable;
 
 public class StandardError implements Serializable {	
-	//erro padrao
-	
 	private static final long serialVersionUID = 1L;
 	
 	private Integer status;
