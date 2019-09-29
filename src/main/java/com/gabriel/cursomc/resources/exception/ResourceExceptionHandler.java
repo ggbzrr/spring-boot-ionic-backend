@@ -10,14 +10,14 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import com.gabriel.cursomc.services.exceptions.DataIntegrityException;
-import com.gabriel.cursomc.services.exceptions.ObjectNotFoundExcepiton;
+import com.gabriel.cursomc.services.exceptions.ObjectNotFoundException;
 
 @ControllerAdvice
 public class ResourceExceptionHandler {
 	//Implementando uma classe que vai interceptar as excecoes e ela tem q ter essa assinatura
 	
-	@ExceptionHandler(ObjectNotFoundExcepiton.class)
-	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundExcepiton e, HttpServletRequest request){
+	@ExceptionHandler(ObjectNotFoundException.class)
+	public ResponseEntity<StandardError> objectNotFound(ObjectNotFoundException e, HttpServletRequest request){
 		StandardError err = new StandardError(HttpStatus.NOT_FOUND.value(), e.getMessage(), System.currentTimeMillis());
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(err);
 	}

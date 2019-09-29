@@ -20,7 +20,7 @@ import com.gabriel.cursomc.dto.ClienteNewDTO;
 import com.gabriel.cursomc.repositories.ClienteRepository;
 import com.gabriel.cursomc.repositories.EnderecoRepository;
 import com.gabriel.cursomc.services.exceptions.DataIntegrityException;
-import com.gabriel.cursomc.services.exceptions.ObjectNotFoundExcepiton;
+import com.gabriel.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ClienteService {
@@ -38,7 +38,7 @@ public class ClienteService {
 	public Cliente find(Integer id) {
 		Optional<Cliente> obj = repo.findById(id);
 		
-		return obj.orElseThrow(() -> new ObjectNotFoundExcepiton(
+		return obj.orElseThrow(() -> new ObjectNotFoundException(
 		"Objeto não encontrado! Id: " + id + ", Tipo: " + Cliente.class.getName()));
 	}
 	

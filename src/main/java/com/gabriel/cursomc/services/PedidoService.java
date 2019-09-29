@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.gabriel.cursomc.domain.Pedido;
 import com.gabriel.cursomc.repositories.PedidoRepository;
-import com.gabriel.cursomc.services.exceptions.ObjectNotFoundExcepiton;
+import com.gabriel.cursomc.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class PedidoService {
@@ -22,7 +22,7 @@ public class PedidoService {
 		public Pedido find(Integer id) {
 			Optional<Pedido> obj = repo.findById(id);
 			
-			return obj.orElseThrow(() -> new ObjectNotFoundExcepiton(
+			return obj.orElseThrow(() -> new ObjectNotFoundException(
 			"Objeto não encontrado! Id: " + id + ", Tipo: " + Pedido.class.getName()));
 		}
 }
