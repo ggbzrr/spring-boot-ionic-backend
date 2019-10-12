@@ -117,6 +117,7 @@ public class Cliente implements Serializable{
 	}
 
 	public Set<Perfil> getPerfis() {
+		//percorre cada elemento do perfis convertendo to enum para pefil
 		return perfis.stream().map(x -> Perfil.toEnum(x)).collect(Collectors.toSet());
 	}
 
