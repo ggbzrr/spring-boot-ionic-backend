@@ -16,6 +16,7 @@ public class AuthService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 
+	
 	@Autowired
 	private BCryptPasswordEncoder pe;
 
